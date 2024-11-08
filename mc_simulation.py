@@ -3,7 +3,7 @@ from easy_21 import State, Action, init_game, step
 import matplotlib.pyplot as plt
 
 
-class MCSimulation:
+class MCControl:
     def __init__(self, n_episodes: int = 10000):
         self.n_episodes = n_episodes
         self.V = {}  # State -> float
@@ -177,7 +177,7 @@ class MCSimulation:
 
 
 def main():
-    simulation = MCSimulation(1000000)
+    simulation = MCControl(1000000)
     simulation.run()
     simulation.plot_value_function()
     simulation.plot_value_heatmap()
