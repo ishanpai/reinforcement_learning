@@ -1,15 +1,19 @@
-from dataclasses import dataclass
 import random
+from dataclasses import dataclass
+
 import numpy as np
+
 
 @dataclass
 class State:
     player_sum: int
     dealer_sum: int
 
+
 @dataclass
 class Action:
     action: str
+
 
 @dataclass
 class Reward:
@@ -24,13 +28,14 @@ def init_game() -> State:
         dealer_sum=dealer_card,
     )
 
+
 def is_bust(sum: int) -> bool:
     return sum > 21 or sum < 1
 
 
 def hit(sum: int) -> tuple[int, int]:
     card_number = random.randint(1, 10)
-    card_color = random.choices(["red", "black"], weights=[1/3, 2/3])[0]
+    card_color = random.choices(["red", "black"], weights=[1 / 3, 2 / 3])[0]
     if card_color == "red":
         card_number = -card_number
     return sum + card_number
