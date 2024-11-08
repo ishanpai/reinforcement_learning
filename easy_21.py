@@ -62,4 +62,3 @@ def step(s: State, a: Action) -> tuple[State, Reward]:
             return State(s.player_sum, dealer_sum), Reward(-1)
     else:
         raise ValueError(f"Invalid action: {a.action}")
-
